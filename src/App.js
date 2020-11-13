@@ -1,11 +1,11 @@
+import React from 'react'
 
+import HeaderNav from './components/headerNav/HeaderNav'
 
-function App() {
-  return (
-    <div >
-
-    </div>
-  );
+const App = () => {
+  return <div>
+    <HeaderNav />
+  </div>
 }
 
-export default App;
+export default App
