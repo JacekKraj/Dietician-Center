@@ -40,6 +40,11 @@
         margin: 0 auto;
 }
 
+.pageFeatures {
+    width:80%;
+    margin:0 auto;
+}
+
 @media(min-width:650px) and (orientation:portrait){
     .pageIntro {
         width:80%;
@@ -128,6 +133,11 @@
 
     .button{
         margin:0;
+    }
+
+    .pageFeatures{
+        display:flex;
+        justify-content: space-between;
     }
 }
 
