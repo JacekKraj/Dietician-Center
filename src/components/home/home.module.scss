@@ -1,0 +1,172 @@
+.home{
+    min-height:100vh;
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 15%,rgba(52,88,218,.15)100%);
+}
+
+.pageIntro {
+    padding:70px 30px 40px;
+    margin:0 auto;
+}
+
+.introTitle{
+    color:#555;
+    margin-bottom:35px;
+}
+
+.pageDesc{
+    color:#888;
+    line-height: 1.8em;
+    font-weight: light;
+    font-size: 14px;
+    margin-bottom:35px;
+}
+
+.button {
+    width:100%;
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin:0 auto;
+}
+
+.introRight{
+    padding:50px 30px;
+}
+
+.testResultImage{
+    width:100%;
+    object-fit: contain;
+    border-radius:10px;
+    display:block;
+        margin: 0 auto;
+}
+
+@media(min-width:650px) and (orientation:portrait){
+    .pageIntro {
+        width:80%;
+    }
+
+    .introTitle{
+        font-size: 38px;
+        margin-bottom: 45px;
+    }
+
+    .pageDesc{
+        font-size: 18px;
+        margin-bottom: 55px;
+    }
+
+    .button{
+        width:50%;
+        font-size: 25px;
+    }
+
+    .introRight{
+        padding:70px 30px;
+    }
+
+    .testResultImage{
+        width:55%;
+    }
+
+}
+
+@media(min-width:360px) and (orientation:landscape){
+    .pageIntro {
+        width:75%;
+    }
+
+    .button{
+        width:60%;
+    }
+
+    .testResultImage{
+        width:70%;
+    }
+}
+
+@media(min-width:800px) and (orientation:landscape){
+    .pageIntro {
+        width:75%;
+    }
+
+    .button{
+        width:60%;
+    }
+
+    .testResultImage{
+        width:55%;
+    }
+}
+
+@media(min-width:1024px){
+    .pageIntro{
+        display:flex;
+        width:100%;
+        align-items: center;
+        padding:90px 30px 50px 70px;
+    }
+
+    .introLeft{
+        flex-basis:45%;
+    }
+
+    .introRight{
+        flex-basis:55%;
+    }
+
+    .introTitle{
+        font-size: 40px;
+    }
+
+    .pageDesc{
+        font-size: 18px;
+    }
+
+    .testResultImage{
+        width:75%;
+    }
+
+    .button{
+        margin:0;
+    }
+}
+
+@media(min-width:1150px){
+    .pageIntro{
+        width:85%;
+        padding:110px 0px 50px 70px;
+    }
+    .testResultImage{
+        margin: 0 0 0 auto  ;
+    }
+
+    .button {
+        font-size: 22px;
+    }
+}
+
+@media(min-width:1300px){
+    .pageIntro{
+        width:75%;
+padding-left:0;
+    }
+    .testResultImage{
+        margin: 0 0 0 auto  ;
+    }
+
+    .introTitle{
+        margin-bottom:50px;
+    }
+
+    .pageDesc{
+        margin-bottom:50px;
+    }
+
+    .button {
+        font-size: 22px;
+    }
+
+    .testResultImage{
+       width:60%;
+    }
+}
