@@ -1,0 +1,27 @@
+.opinions{
+    width:80%;
+    margin:0 auto;
+    padding-top: 10px;
+    padding-bottom:40px;
+}
+
+@media(min-width:650px) and (orientation:portrait){
+    .opinions{
+        padding-bottom: 55px;
+    }
+}
+
+@media(min-width:1150px){
+   .opinions{
+       display:flex;
+       justify-content: space-between;
+       padding-bottom: 70px;
+   }
+
+}
+
+@media(min-width:1350px){
+    .opinions{
+        padding-top: 35px;
+    }
+}

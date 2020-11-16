@@ -1,6 +1,6 @@
 .home{
     min-height:100vh;
-    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 15%,rgba(52,88,218,.15)100%);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 15%,rgba(52,88,218,.15) 80%,rgba(52,88,218,.05) 100% );
 }
 
 .pageIntro {
@@ -21,7 +21,7 @@
     margin-bottom:35px;
 }
 
-.button {
+.authButton {
     width:100%;
     font-size: 20px;
     letter-spacing: 1px;
@@ -45,6 +45,16 @@
     margin:0 auto;
 }
 
+.opinionButtonContainer{
+    padding-bottom:45px;
+}
+
+.opinionButton{
+    margin: 0 auto;
+    width:50%;
+    font-size: 18px;
+}
+
 @media(min-width:650px) and (orientation:portrait){
     .pageIntro {
         width:80%;
@@ -60,7 +70,7 @@
         margin-bottom: 55px;
     }
 
-    .button{
+    .authButton{
         width:50%;
         font-size: 25px;
     }
@@ -72,6 +82,11 @@
     .testResultImage{
         width:55%;
     }
+    
+    .opinionButton{
+        width:40%;
+        font-size: 22px;
+    }
 
 }
 
@@ -80,7 +95,7 @@
         width:75%;
     }
 
-    .button{
+    .authButton{
         width:60%;
     }
 
@@ -94,12 +109,17 @@
         width:75%;
     }
 
-    .button{
+    .authButton{
         width:60%;
     }
 
     .testResultImage{
         width:55%;
+    }
+
+    .opinionButton{
+        width:32%;
+        font-size: 22px;
     }
 }
 
@@ -131,7 +151,7 @@
         width:75%;
     }
 
-    .button{
+    .authButton{
         margin:0;
     }
 
@@ -150,8 +170,12 @@
         margin: 0 0 0 auto  ;
     }
 
-    .button {
+    .authButton {
         font-size: 22px;
+    }
+
+    .opinionButtonContainer{
+        padding-bottom:60px;
     }
 }
 
@@ -172,11 +196,15 @@ padding-left:0;
         margin-bottom:50px;
     }
 
-    .button {
+    .authButton {
         font-size: 22px;
     }
 
     .testResultImage{
        width:60%;
+    }
+
+    .opinionButton{
+        width:20%;
     }
 }
