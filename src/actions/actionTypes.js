@@ -1,0 +1,2 @@
+export const SET_LOGIN_MODE = "SET_LOGIN_MODE";
+export const SET_REIGSTER_MODE = "SET_REGISTER_MODE";
