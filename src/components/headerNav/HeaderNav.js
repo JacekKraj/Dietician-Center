@@ -3,10 +3,13 @@ import MenuIcon from '@material-ui/icons/Menu';
 import classnames from 'classnames';
 import { NavLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
+import { connect } from 'react-redux'
 
 import classes from './headerNav.module.scss';
 import NavigationItem from './navigationItem/NavigationItem';
 import Backdrop from './../UI/backdrop/Backdrop';
+import * as actions from './../../actions/index'
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -21,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
-const HeaderNav = () => {
+const HeaderNav = (props) => {
     const [showMenu, setShowMenu] = useState(false);
     const [navBorder, setNavBorder] = useState(false)
     const materialUiStyles = useStyles();
@@ -39,6 +42,11 @@ const HeaderNav = () => {
         setShowMenu(!showMenu)
     }
 
+    const setLoginMode = () => {
+        props.onChangeToLoginMode();
+        setShowMenu(false)
+    }
+
     return <div className={classnames(classes.headerNav, navBorder && classes.navBorder)} >
         {showMenu ? <Backdrop onClick={showMenuHandler} /> : null}
         <div className={classes.header}>
@@ -53,10 +61,16 @@ const HeaderNav = () => {
                 <NavigationItem text="Patients" />
             </div>
             <div className={classes.navRight}>
-                <NavigationItem text="Sign In" className={classes.authButton} />
+                <button className={classes.authButton} onClick={setLoginMode} >Sign In</button>
             </div>
         </div>
     </div>
 }
 
-export default HeaderNav
+const mapDispatchToProps = dispatch => {
+    return {
+        onChangeToLoginMode: () => dispatch(actions.setLoginMode())
+    }
+}
+
+export default connect(null, mapDispatchToProps)(HeaderNav)
