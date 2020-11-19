@@ -7,18 +7,27 @@ import classes from './loginForm.module.scss';
 import MyFormikInput from './../../../../utility/myFormikInput/MyFormikInput';
 import Input from './../../../UI/input/Input';
 import Button from './../../../UI/button/Button';
-import * as actions from './../../../../actions/index'
+import * as actions from './../../../../actions/index';
+import { showFailToast } from './../../../../utility/toastify/toastify'
 
 const LoginForm = (props) => {
     return <div className={classes.loginForm}>
-        <Formik initialValues={{ email: "", password: "" }} onSubmit={() => { }} validationSchema={Yup.object({
-            email: Yup.string().email(
-                "Email you passed seems to be invalid."
-            ),
-            password: Yup.string()
-                .min(4, "Password needs to be at least 4 characters.")
-                .max(10, "Password needs to be at max 12 characters."),
-        })}>
+        <Formik initialValues={{ email: "", password: "" }}
+            onSubmit={(values) => {
+                if (values.email && values.password) {
+                    props.onLogin(values.email, values.password)
+                } else {
+                    showFailToast("All inputs needs to be field.")
+                }
+            }}
+            validationSchema={Yup.object({
+                email: Yup.string().email(
+                    "Email you passed seems to be invalid."
+                ),
+                password: Yup.string()
+                    .min(4, "Password needs to be at least 4 characters.")
+                    .max(10, "Password needs to be at max 12 characters."),
+            })}>
             {() => {
                 return <Form>
                     <div className={classes.formContainer}>
@@ -35,7 +44,8 @@ const LoginForm = (props) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onChangeToRegisterMode: () => dispatch(actions.setRegisterMode())
+        onChangeToRegisterMode: () => dispatch(actions.setRegisterMode()),
+        onLogin: (email, password) => dispatch(actions.login(email, password))
     }
 }
 

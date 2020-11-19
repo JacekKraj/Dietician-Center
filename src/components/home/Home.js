@@ -11,7 +11,8 @@ import PageFeature from './pageFeature/PageFeature';
 import Opinions from './opinions/Opinions';
 import * as actions from './../../actions/index';
 import LoginForm from './authForm/loginForm/LoginForm';
-import RegisterForm from './authForm/registerForm/RegisterForm'
+import RegisterForm from './authForm/registerForm/RegisterForm';
+import Spinner from './../UI/spinner/Spinner'
 
 
 const Home = (props) => {
@@ -25,6 +26,10 @@ const Home = (props) => {
     introLeft = props.isLoginMode ? <LoginForm /> : introLeft;
 
     introLeft = props.isRegisterMode ? <RegisterForm /> : introLeft;
+
+    introLeft = props.isLoading ? <div className={classes.spinnerContainer}><Spinner /></div> : introLeft
+
+
 
     return <div className={classes.home}>
         <div className={classes.pageIntro}>
@@ -48,7 +53,9 @@ const Home = (props) => {
 const mapStateToProps = state => {
     return {
         isLoginMode: state.auth.loginMode,
-        isRegisterMode: state.auth.registerMode
+        isRegisterMode: state.auth.registerMode,
+        isLoading: state.auth.loading,
+        isAuthenticated: state.auth.authenticated
     }
 }
 

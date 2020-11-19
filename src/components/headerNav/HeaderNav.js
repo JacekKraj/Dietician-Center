@@ -8,7 +8,8 @@ import { connect } from 'react-redux'
 import classes from './headerNav.module.scss';
 import NavigationItem from './navigationItem/NavigationItem';
 import Backdrop from './../UI/backdrop/Backdrop';
-import * as actions from './../../actions/index'
+import * as actions from './../../actions/index';
+import fire from './../../firebaseConfig'
 
 
 
@@ -42,9 +43,13 @@ const HeaderNav = (props) => {
         setShowMenu(!showMenu)
     }
 
-    const setLoginMode = () => {
+    const setLoginModeHandler = () => {
         props.onChangeToLoginMode();
         setShowMenu(false)
+    }
+
+    const logOutHandler = () => {
+        fire.auth().signOut();
     }
 
     return <div className={classnames(classes.headerNav, navBorder && classes.navBorder)} >
@@ -58,13 +63,20 @@ const HeaderNav = (props) => {
                 <NavLink to="/"><p className={classes.logo}>DieticianCenter</p></NavLink>
                 <NavigationItem text="FAQ" />
                 <NavigationItem text="Contact" />
-                <NavigationItem text="Patients" />
+                {props.isAuthenticated && <NavigationItem text="Patients" />}
             </div>
             <div className={classes.navRight}>
-                <button className={classes.authButton} onClick={setLoginMode} >Sign In</button>
+                {!props.isAuthenticated ? <button className={classes.authButton} onClick={setLoginModeHandler} >Sign In</button> : <button className={classes.authButton} onClick={logOutHandler} >Log out</button>}
+
             </div>
         </div>
     </div>
+}
+
+const mapStateToProps = state => {
+    return {
+        isAuthenticated: state.auth.authenticated
+    }
 }
 
 const mapDispatchToProps = dispatch => {
@@ -73,4 +85,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(HeaderNav)
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderNav)
