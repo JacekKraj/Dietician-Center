@@ -2,7 +2,8 @@ import React from 'react';
 import ScheduleIcon from '@material-ui/icons/Schedule';
 import FormatListNumberedIcon from '@material-ui/icons/FormatListNumbered';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom'
 
 import classes from './home.module.scss'
 import Button from './../UI/button/Button'
@@ -27,7 +28,15 @@ const Home = (props) => {
 
     introLeft = props.isRegisterMode ? <RegisterForm /> : introLeft;
 
-    introLeft = props.isLoading ? <div className={classes.spinnerContainer}><Spinner /></div> : introLeft
+    introLeft = props.isLoading ? <div className={classes.spinnerContainer}><Spinner /></div> : introLeft;
+
+    introLeft = props.isAuthenticated ? (<div className={classes.introLeft}>
+        <h1 className={classes.introTitle}>Add test result</h1>
+        <p className={classes.pageDesc}>Add a file with test result, and be able to comapre changes of result of each patient in user friendly way.</p>
+        <NavLink to="/add-new-result">
+            <Button className={classes.authButton} type="button">Get started</Button>
+        </NavLink>
+    </div>) : introLeft;
 
 
 
