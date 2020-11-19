@@ -1,1 +1,1 @@
-export { setLoginMode, setRegisterMode } from './authentication'
+export { setLoginMode, setRegisterMode, login, register, autoLogin, autoLogout } from './authentication'
