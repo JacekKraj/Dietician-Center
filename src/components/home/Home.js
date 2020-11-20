@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ScheduleIcon from '@material-ui/icons/Schedule';
 import FormatListNumberedIcon from '@material-ui/icons/FormatListNumbered';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
@@ -13,10 +13,16 @@ import Opinions from './opinions/Opinions';
 import * as actions from './../../actions/index';
 import LoginForm from './authForm/loginForm/LoginForm';
 import RegisterForm from './authForm/registerForm/RegisterForm';
-import Spinner from './../UI/spinner/Spinner'
+import Spinner from './../UI/spinner/Spinner';
+import NewOpinionModal from './opinions/newOpinionModal/NewOpinionModal'
 
 
 const Home = (props) => {
+    const [showAddOpinionModal, setShowAddOpinionModal] = useState(false)
+
+    const showAddOpinionModalHandler = () => {
+        setShowAddOpinionModal(!showAddOpinionModal)
+    }
 
     let introLeft = (<div className={classes.introLeft}>
         <h1 className={classes.introTitle}>Work with body tests results</h1>
@@ -54,8 +60,10 @@ const Home = (props) => {
         </div>
         <Opinions />
         <div className={classes.opinionButtonContainer}>
-            <Button className={classes.opinionButton} type="button">Add your opinion</Button>
+            {props.isAuthenticated ? <Button className={classes.opinionButton} onClick={showAddOpinionModalHandler} type="button">Add your opinion</Button> :
+                <p>Sign in to be able to add your opinion.</p>}
         </div>
+        {showAddOpinionModal && <NewOpinionModal backdropClick={showAddOpinionModalHandler} />}
     </div>
 }
 

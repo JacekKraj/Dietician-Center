@@ -74,9 +74,10 @@ export const login = (email, password) => {
     }
 }
 
-export const autoLogin = () => {
+export const autoLogin = (fireUser) => {
     return {
-        type: actionTypes.AUTO_LOGIN
+        type: actionTypes.AUTO_LOGIN,
+        fireUser: fireUser
     }
 }
 

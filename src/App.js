@@ -21,7 +21,7 @@ const App = (props) => {
     fire.auth().onAuthStateChanged(authUser => {
       if (authUser) {
         if (fire.auth().currentUser.emailVerified) {
-          props.onAutoLogin()
+          props.onAutoLogin(fire.auth().currentUser)
         } else {
           showFailToast("Verification email has been sent to your email address. Verify to sign in.")
           props.onAutoLogout()
@@ -56,7 +56,7 @@ const App = (props) => {
 
 const mapDistpatchToProps = (dispatch) => {
   return {
-    onAutoLogin: () => dispatch(actions.autoLogin()),
+    onAutoLogin: (fireUser) => dispatch(actions.autoLogin(fireUser)),
     onAutoLogout: () => dispatch(actions.autoLogout())
   }
 }
