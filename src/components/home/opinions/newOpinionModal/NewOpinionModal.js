@@ -1,15 +1,14 @@
 import React, { Fragment, useState } from 'react';
 import { Formik, Form } from 'formik';
 import Rating from '@material-ui/lab/Rating';
-import { connect } from 'react-redux'
-
+import { connect } from 'react-redux';
 
 import classes from './newOpinionModal.module.scss';
 import Backdrop from './../../../UI/backdrop/Backdrop';
 import MyFormikTextArea from './../../../../utility/myFormikTextArea/MyFormikTextArea';
 import Button from './../../../UI/button/Button';
 import * as actions from './../../../../actions/index';
-import TextArea from './../../../UI/textArea/TextArea'
+import TextArea from './../../../UI/textArea/TextArea';
 
 const NewOpinionModal = (props) => {
     const [starsValue, setStarsValue] = useState(0);
@@ -24,7 +23,8 @@ const NewOpinionModal = (props) => {
                         stars: starsValue,
                         email: props.fireUser.email
                     }
-                    console.log(newOpinion)
+                    props.onAddOpinion(newOpinion)
+
                 }
             }}>
                 {() => {
@@ -33,13 +33,12 @@ const NewOpinionModal = (props) => {
                             <p>Add your opinion</p>
                             <Rating
                                 onChange={(e, value) => {
-                                    console.log(value)
                                     setStarsValue(value)
                                 }}
                                 name="page-rating"
                                 size="large"
                             />
-                            <MyFormikTextArea className={classes.textArea} name="opinions" as={TextArea} />
+                            <MyFormikTextArea className={classes.textArea} name="opinion" as={TextArea} />
                             <Button type="submit" className={classes.button}>Submit opinion</Button>
                         </div>
                     </Form>

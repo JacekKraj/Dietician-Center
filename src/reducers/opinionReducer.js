@@ -1,4 +1,5 @@
-import * as actionTypes from './../actions/actionTypes'
+import * as actionTypes from './../actions/actionTypes';
+import fire from "./../firebaseConfig";
 
 const initialState = {
     opinions: []
@@ -15,9 +16,13 @@ const opinionReducer = (state = initialState, action) => {
             let newOpinions = [...state.opinions];
             newOpinions.length >= 3 && newOpinions.pop();
             newOpinions.unshift(action.opinion)
+            fire
+                .database()
+                .ref(`opinions`)
+                .set(newOpinions)
             return {
                 ...state,
-                opinons: newOpinions
+                opinions: newOpinions
             }
         default:
             return state

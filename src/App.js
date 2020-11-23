@@ -2,7 +2,7 @@ import React, { useEffect, useState, Suspense } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { connect } from 'react-redux';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import fire from './firebaseConfig'
+import fire from './firebaseConfig';
 
 import HeaderNav from './components/headerNav/HeaderNav';
 import Home from './components/home/Home';
@@ -17,6 +17,7 @@ const App = (props) => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    props.onGetOpinions()
     setLoading(true)
     fire.auth().onAuthStateChanged(authUser => {
       if (authUser) {
@@ -57,7 +58,8 @@ const App = (props) => {
 const mapDistpatchToProps = (dispatch) => {
   return {
     onAutoLogin: (fireUser) => dispatch(actions.autoLogin(fireUser)),
-    onAutoLogout: () => dispatch(actions.autoLogout())
+    onAutoLogout: () => dispatch(actions.autoLogout()),
+    onGetOpinions: () => dispatch(actions.getOpinions())
   }
 }
 
