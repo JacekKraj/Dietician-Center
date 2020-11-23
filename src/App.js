@@ -2,7 +2,7 @@ import React, { useEffect, useState, Suspense } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { connect } from 'react-redux';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import fire from './firebaseConfig'
+import fire from './firebaseConfig';
 
 import HeaderNav from './components/headerNav/HeaderNav';
 import Home from './components/home/Home';
@@ -17,11 +17,12 @@ const App = (props) => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    props.onGetOpinions()
     setLoading(true)
     fire.auth().onAuthStateChanged(authUser => {
       if (authUser) {
         if (fire.auth().currentUser.emailVerified) {
-          props.onAutoLogin()
+          props.onAutoLogin(fire.auth().currentUser)
         } else {
           showFailToast("Verification email has been sent to your email address. Verify to sign in.")
           props.onAutoLogout()
@@ -56,8 +57,9 @@ const App = (props) => {
 
 const mapDistpatchToProps = (dispatch) => {
   return {
-    onAutoLogin: () => dispatch(actions.autoLogin()),
-    onAutoLogout: () => dispatch(actions.autoLogout())
+    onAutoLogin: (fireUser) => dispatch(actions.autoLogin(fireUser)),
+    onAutoLogout: () => dispatch(actions.autoLogout()),
+    onGetOpinions: () => dispatch(actions.getOpinions())
   }
 }
 
