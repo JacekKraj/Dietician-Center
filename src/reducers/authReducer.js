@@ -8,6 +8,7 @@ const initialState = {
     registerMode: false,
     authenticated: false,
     loading: false,
+    fireUser: null,
     error: null
 }
 
@@ -61,11 +62,13 @@ const authReducer = (state = initialState, action) => {
         case actionTypes.AUTO_LOGIN:
             return {
                 ...state,
+                fireUser: action.fireUser,
                 authenticated: true
             }
         case actionTypes.AUTO_LOGOUT:
             return {
                 ...state,
+                fireUser: null,
                 authenticated: false
             }
         default:

@@ -1,14 +1,23 @@
 import React from 'react';
+import { connect } from 'react-redux'
 
 import classes from './opinions.module.scss';
 import Opinion from './opinion/Opinion'
 
-const Opinions = () => {
+const Opinions = (props) => {
     return <div className={classes.opinions}>
-        <Opinion email="jacekkrajewski12@wp.pl" text="Really enjoyed working with this clear user interface." defaultValue={5} />
-        <Opinion email="TAdamczyk@gmail.com" text="Give 5 stars because page is free to use!" defaultValue={5} />
-        <Opinion email="Eddensson@gmail.com" text="Working with the data can be really easy using that page." defaultValue={4} />
+        {props.authenticated && props.opinions?.map((el, index) => {
+            return <Opinion key={index} email={el.email} text={el.opinion} defaultValue={el.stars} />
+        })}
     </div>
 }
 
-export default Opinions
+
+const mapStateToProps = state => {
+    return {
+        opinions: state.opinion.opinions,
+        authenticated: state.auth.authenticated
+    }
+}
+
+export default connect(mapStateToProps)(Opinions)

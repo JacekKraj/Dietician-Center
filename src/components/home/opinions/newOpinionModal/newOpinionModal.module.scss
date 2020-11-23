@@ -1,0 +1,132 @@
+.modal{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    z-index:11;
+    width:70%;
+    height:60vh;
+ background: linear-gradient(0deg, rgb(245,245,255) 0%, rgb(245,245,255) 15%,rgb(172,198,255) 100% );;
+ -webkit-box-shadow: 0px 0px 22px 5px rgba(0,0,0,0.5); 
+ box-shadow: 0px 0px 22px 5px rgba(0,0,0,0.5);
+ border-radius:5px;
+}
+
+.modal form{
+    height:inherit
+}
+
+.formContainer{
+    display:flex;
+    flex-direction: column;
+justify-content: space-between;
+align-items: center;
+height:inherit;
+padding:20px 10px;
+}
+
+.formContainer p {
+    color:#333;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.formContainer span{
+    margin-bottom: 12px;
+}
+
+.textArea{
+    width:80%;
+    flex:1;
+}
+
+.button{
+    margin-top: 25px;
+    font-size: 14px;
+    width:60%;
+}
+
+@media(min-width:600px) and (orientation:portrait){
+    .formContainer{
+     padding:35px 15px;
+    }
+
+
+.formContainer p {
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+.formContainer span {
+    margin-bottom: 15px;
+}
+
+.button{
+    width:40%;
+    font-size: 22px;
+    margin-top: 45px;
+}
+}
+
+@media(orientation:landscape){
+    .modal{
+        width:55%;
+        height:75vh;
+    }
+    
+    .formContainer p {
+        margin-bottom: 10px;
+    }
+    
+    .formContainer span{
+        margin-bottom: 10px;
+    }
+    
+    
+    .button{
+        margin-top: 25px;
+        font-size: 16px;
+        width:50%;
+    }
+}
+
+@media(min-width:1024px){
+    .modal{
+        width:45%;
+        height:60vh;
+    }
+
+    .formContainer{
+        padding:25px 15px;
+    }
+
+    .formContainer p {
+        font-size: 26px;
+        margin-bottom: 13px;
+    }
+
+    .formContainer span {
+        margin-bottom: 13px;
+    }
+
+    .button{
+        font-size: 20px;
+        margin-top: 30px;
+    }
+}
+
+@media(min-width:1150px){
+    .formContainer{
+        padding:35px 25px
+    }
+
+    .button{
+        margin-top: 35px;
+    }
+}
+
+@media(min-width:1300px){
+    .modal{
+        width:32%;
+    }
+}

@@ -47,10 +47,15 @@
 
 .opinionButtonContainer{
     padding-bottom:45px;
+    display:flex;
+    justify-content: center;
+}
+
+.opinionButtonContainer p{
+color:#555
 }
 
 .opinionButton{
-    margin: 0 auto;
     width:50%;
     font-size: 18px;
 }
@@ -87,6 +92,11 @@
         width:40%;
         font-size: 22px;
     }
+
+    .opinionButtonContainer p{
+        font-size: 20px;
+        }
+        
 
 }
 
