@@ -61,8 +61,8 @@ const HeaderNav = (props) => {
         <div className={classnames(classes.navHidden, showMenu && classes.navShown, classes.bigScreenNav)}>
             <div className={classes.navLeft}>
                 <NavLink to="/"><p className={classes.logo}>DieticianCenter</p></NavLink>
-                <NavigationItem text="FAQ" />
-                <NavigationItem text="Contact" />
+                <NavigationItem text="faq" />
+                <NavigationItem text="contact" />
                 {props.isAuthenticated && <NavigationItem text="Patients" />}
             </div>
             <div className={classes.navRight}>

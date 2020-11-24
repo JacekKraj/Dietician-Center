@@ -16,6 +16,10 @@ import { showFailToast } from './utility/toastify/toastify'
 const App = (props) => {
   const [loading, setLoading] = useState(true)
 
+  const Faq = React.lazy(() => {
+    return import('./components/faq/Faq')
+  })
+
   useEffect(() => {
     props.onGetOpinions()
     setLoading(true)
@@ -38,10 +42,12 @@ const App = (props) => {
   let routes = props.isAuthenticated ?
     <Switch>
       <Route exact path="/" component={Home} />
+      <Route exact path="/faq" render={(props) => (<Faq {...props} />)} />
       <Redirect to='/' />
     </Switch> :
     <Switch>
       <Route exact path="/" component={Home} />
+      <Route exact path="/faq" render={(props) => <Faq {...props} />} />
       <Redirect to='/' />
     </Switch>
 
