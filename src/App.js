@@ -20,6 +20,10 @@ const App = (props) => {
     return import('./components/faq/Faq')
   })
 
+  const Contact = React.lazy(() => {
+    return import('./components/contact/Contact')
+  })
+
   useEffect(() => {
     props.onGetOpinions()
     setLoading(true)
@@ -43,11 +47,13 @@ const App = (props) => {
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/faq" render={(props) => (<Faq {...props} />)} />
+      <Route exact path="/contact" render={(props) => (<Contact {...props} />)} />
       <Redirect to='/' />
     </Switch> :
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/faq" render={(props) => <Faq {...props} />} />
+      <Route exact path="/contact" render={(props) => (<Contact {...props} />)} />
       <Redirect to='/' />
     </Switch>
 
