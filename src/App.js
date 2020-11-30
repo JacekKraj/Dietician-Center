@@ -24,6 +24,10 @@ const App = (props) => {
     return import('./components/contact/Contact')
   })
 
+  const AddNewResult = React.lazy(() => {
+    return import('./components/addNewResult/AddNewResult')
+  })
+
   useEffect(() => {
     props.onGetOpinions()
     setLoading(true)
@@ -48,6 +52,7 @@ const App = (props) => {
       <Route exact path="/" component={Home} />
       <Route exact path="/faq" render={(props) => (<Faq {...props} />)} />
       <Route exact path="/contact" render={(props) => (<Contact {...props} />)} />
+      <Route exact path="/add-new-result" render={(props) => (<AddNewResult {...props} />)} />
       <Redirect to='/' />
     </Switch> :
     <Switch>
