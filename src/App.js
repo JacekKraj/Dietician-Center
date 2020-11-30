@@ -22,8 +22,8 @@ const App = (props) => {
     return import("./components/contact/Contact");
   });
 
-  const AddNewResult = React.lazy(() => {
-    return import("./components/addNewResult/AddNewResult");
+  const ResultAnalyzer = React.lazy(() => {
+    return import("./components/resultAnalyzer/ResultAnalyzer");
   });
 
   useEffect(() => {
@@ -50,7 +50,7 @@ const App = (props) => {
       <Route exact path="/" component={Home} />
       <Route exact path="/faq" render={(props) => <Faq {...props} />} />
       <Route exact path="/contact" render={(props) => <Contact {...props} />} />
-      <Route exact path="/add-new-result" render={(props) => <AddNewResult {...props} />} />
+      <Route exact path="/add-new-result" render={(props) => <ResultAnalyzer {...props} />} />
       <Redirect to="/" />
     </Switch>
   ) : (
