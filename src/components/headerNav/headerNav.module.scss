@@ -1,204 +1,196 @@
-.header{
-    background-color: #fff;
-    margin:0 auto;
-    padding:8px 15px;
-    display:flex;
-    align-items: center;
-    border-bottom:1px solid #bbb;
+.header {
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #bbb;
 }
 
-.menuButton{
-    border:none;
-    background-color: transparent;
-    margin-right:15px;
-    margin-top: 3px;
+.menuButton {
+  border: none;
+  background-color: transparent;
+  margin-right: 15px;
+  margin-top: 3px;
 }
 
-.logo{
-    font-size: 24px;
-    color:#333
+.logo {
+  font-size: 24px;
+  color: #333;
 }
 
-
-.navHidden{
-    display:none;
+.navHidden {
+  display: none;
 }
 
-.navShown{
-    display:flex;
-    flex-direction:column;
-    justify-content: space-between;
-    position:fixed;
-    left:0;
-    top:0;
-    width:75%;
-    height:100vh;
-    z-index:11;
-    background-color: white;
+.navShown {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 75%;
+  height: 100vh;
+  z-index: 11;
+  background-color: white;
 }
 
-.navLeft{
-    display:flex;
-    flex-direction:column;
-    width:100%;
-    flex:1;
-
+.navLeft {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1;
 }
 
-.navLeft  p {
-    padding:12.5px 26px;
-    border-bottom:1px solid #bbb;
-    margin-bottom:15px;
+.navLeft p {
+  padding: 12.5px 26px;
+  border-bottom: 1px solid #bbb;
+  margin-bottom: 15px;
 }
 
 .authButton {
-    background-color:rgba(52,88,218,.15) ;
-    color:#3458da !important;
-    padding:10px 15px!important;
-    width:75%;
-    border-radius:10px;
+  background-color: rgba(52, 88, 218, 0.15);
+  color: #3458da !important;
+  padding: 10px 15px !important;
+  width: 75%;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  cursor: pointer;
+  margin-left: 25px;
+  font-size: 20px;
+}
+
+.authButton:hover {
+  background-color: rgba(22, 58, 188, 0.2);
+}
+
+@media (min-width: 450px) and (orientation: portrait) {
+  .header {
+    padding: 10px 15px;
+  }
+
+  .logo {
+    font-size: 28px;
+  }
+
+  .navLeft p {
+    padding: 13px 26px;
+  }
+
+  .authButton {
+    padding: 15px 15px !important;
+  }
+}
+
+@media (min-width: 700px) and (orientation: portrait) {
+  .header {
+    padding: 15px 22px;
+  }
+
+  .menuButton {
+    margin-right: 20px;
+  }
+
+  .logo {
+    font-size: 38px;
+  }
+
+  .navLeft p {
+    padding: 25px 26px;
+    margin-bottom: 25px;
+  }
+
+  .authButton {
+    padding: 20px 0 !important;
+    font-size: 35px !important;
+    width: 65%;
+  }
+}
+
+@media (min-width: 500px) and(orientation:landscape) {
+  .navShown {
+    width: 65%;
+  }
+
+  .navLeft p {
+    padding: 12.5px 26px;
+    border-bottom: 1px solid #bbb;
+    margin-bottom: 15px;
+  }
+
+  .authButton {
+    padding: 10px 0 !important;
+    font-size: 18px !important;
+    width: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navBorder {
+    -webkit-box-shadow: 0px 2px 8px 0px rgba(52, 88, 218, 0.15);
+    -moz-box-shadow: 0px 2px 8px 0px rgba(52, 88, 218, 0.15);
+    box-shadow: 0px 2px 8px 0px rgba(52, 88, 218, 0.15);
+    padding: 10px 30px !important;
+    transition: 0.3s;
+  }
+  .headerNav {
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 30px;
+    transition: 0.3s;
+  }
+  .header {
+    display: none;
+    padding: 0;
+  }
+
+  .navShown {
+    height: 11vh;
+  }
+
+  .bigScreenNav {
+    display: block;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .navLeft {
+    flex-direction: row;
+    align-items: flex-end;
+    flex: 1;
+  }
+
+  .navLeft p {
+    border: none;
+    padding: 0 30px 0 0;
+    margin-bottom: 0;
     font-weight: bold;
-    margin-bottom:40px;
-    cursor:pointer;
-    margin-left:25px;
-    font-size: 20px;
+    font-size: 26px;
+  }
+
+  .authButton {
+    padding: 10px 15px !important;
+    width: 150px;
+    font-size: 18px !important;
+    margin-bottom: 0;
+  }
 }
 
-.authButton:hover{
-    background-color: rgba(22,58,188,.2);
+@media (min-width: 1150px) {
+  .bigScreenNav {
+    width: 90%;
+    margin: 0 auto;
+  }
 }
 
-@media(min-width:450px) and (orientation:portrait){
-    .header{
-        padding:10px 15px;
-    }
-    
-    .logo{
-        font-size: 28px;
-    }
-    
-    
-    .navLeft  p {
-        padding:13px 26px;
-    }
-    
-    .authButton {
-        padding:15px 15px !important;
-    }
+@media (min-width: 1300px) {
+  .bigScreenNav {
+    width: 85%;
+  }
 }
-
-@media(min-width:700px) and (orientation:portrait){
-    .header{
-        padding:15px 22px;
-    }
-    
-    .menuButton{
-        margin-right:20px;
-    }
-    
-    .logo{
-        font-size: 38px;
-    }
-    
-    .navLeft  p {
-        padding:25px 26px;
-        margin-bottom:25px;
-    }
-    
-    .authButton {
-        padding:20px 0 !important;
-        font-size: 35px !important;
-        width:65%;
-    }
-}
-
-@media(min-width:500px) and(orientation:landscape){ 
-    .navShown{
-        width:65%;
-    }
-
-    
-    .navLeft  p {
-        padding:12.5px 26px;
-        border-bottom:1px solid #bbb;
-        margin-bottom:15px;
-    }
-    
-
-    .authButton {
-        padding:10px 0 !important;
-        font-size: 18px !important;
-        width:50%;
-    }
-}
-
-@media(min-width:1024px){
-    .navBorder{
-        -webkit-box-shadow: 0px 2px 8px 0px rgba(52,88,218,.15);
-        -moz-box-shadow:    0px 2px 8px 0px rgba(52,88,218,.15);
-        box-shadow:         0px 2px 8px 0px rgba(52,88,218,.15);
-        padding:10px 30px !important;
-        transition:.3s;
-        
-    }
-    .headerNav{
-        background-color:#fff;
-        position:fixed;
-        top:0;
-        left:0;
-        right:0;
-        padding:20px 30px;
-        transition:.3s;
-    }
-    .header{
-        display:none;
-        padding: 0;
-    }
-
-    .navShown{
-        height:11vh;
-    }
-
-    .bigScreenNav{
-        display:block;
-        display:flex;
-        flex-direction:row;
-        align-items: center;
-    }
-
-    .navLeft{
-        flex-direction:row;
-        align-items: flex-end;
-        flex:1;
-        
-    }
-
-    .navLeft p {
-        border:none;
-        padding:0 30px 0 0;
-        margin-bottom: 0;
-        font-weight: bold;
-        font-size: 26px;
-    }
-
-    .authButton {
-        padding:10px 15px!important;
-        width:150px;
-        font-size: 18px !important;
-        margin-bottom: 0;
-    }
-}
-
-@media(min-width:1150px) {
-.bigScreenNav{
-    width:90%;
-    margin:0 auto;
-    }
-}
-
-@media(min-width:1300px) {
-    .bigScreenNav{
-        width:85%;
-    }
-    
- }
