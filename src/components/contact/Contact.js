@@ -24,7 +24,7 @@ const Contact = () => {
     const iconStyles = useStyles()
     return <div className={classes.container}>
         <h1 className={classes.title}>
-            Do you need some help or you aren't sure with something in our page? Contact us and dispel your doubts.
+            Do you need some help or you aren't sure about something on our page? Contact us and dispel your doubts.
         </h1>
         <div className={classes.emailContainer}>
             <EmailIcon className={iconStyles.icon} />
