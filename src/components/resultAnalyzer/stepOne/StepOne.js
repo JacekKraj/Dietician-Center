@@ -10,15 +10,15 @@ import { showFailToast } from "./../../../utility/toastify/toastify";
 const AddNewResult = (props) => {
   const inputText = useRef(null);
   const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
-    if (acceptedFiles.length === 1) {
-      inputText.current.textContent = `${acceptedFiles[0].name} - ${(acceptedFiles[0].size / (1024 * 1024)).toFixed(2)}mb`;
-      const image = window.URL.createObjectURL(acceptedFiles[0]);
-      props.setFile(image);
-    } else {
-      showFailToast("You try to add more than one file, or file format is incorrect (only jpg and png).");
+    if (acceptedFiles.length > 0) {
+      const imageList = acceptedFiles.map((el) => window.URL.createObjectURL(el));
+      inputText.current.textContent = `Accepted ${acceptedFiles.length} files`;
+      props.setFiles(imageList);
+    } else if (rejectedFiles.length) {
+      showFailToast("Some files has been rejected. Check if format is correct(jpg, png) or total files size(max 50mb).");
     }
   }, []);
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ accept: "image/jpeg, image/png", onDrop });
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ maxSize: 52428800, accept: "image/jpeg, image/png", onDrop });
   return (
     <div className={classes.container}>
       <div className={classes.formContainer}>
@@ -30,7 +30,9 @@ const AddNewResult = (props) => {
             <p ref={inputText}>Drag and drop scan of results here, or click to select from your desktop (jpg, png)</p>
           )}
         </div>
-        <Button className={classnames(classes.button, classes.buttonOverImage)}>Analyze scan</Button>
+        <Button className={classnames(classes.button, classes.buttonOverImage)} onClick={props.moveToNextStepHandler}>
+          Analyze scan
+        </Button>
       </div>
       <div className={classes.scan}>
         <img src={customResult} alt="result scan" />

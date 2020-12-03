@@ -3,16 +3,19 @@ import React, { Fragment, useState } from "react";
 import StepOne from "./stepOne/StepOne";
 
 const ResultAnalyzer = (props) => {
-  const [acceptedFile, setAcceptedFile] = useState([]);
+  const [acceptedFiles, setAcceptedFiles] = useState([]);
   const [step, setStep] = useState(1);
 
-  const acceptFile = (accFiles) => {
-    setAcceptedFile(accFiles);
-    setStep(2);
+  const acceptFiles = (accFiles) => {
+    setAcceptedFiles(accFiles);
+  };
+
+  const moveToNextStepHandler = () => {
+    setStep((currState) => currState + 1);
   };
   return (
     <Fragment>
-      {step === 1 && <StepOne setFile={acceptFile} />}
+      {step === 1 && <StepOne setFiles={acceptFiles} moveToNextStepHandler={moveToNextStepHandler} />}
       {step === 2 && console.log(2)}
     </Fragment>
   );
