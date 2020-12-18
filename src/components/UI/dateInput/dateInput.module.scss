@@ -13,13 +13,8 @@
   color: #555;
 }
 
-.input:focus,
-.input:disabled {
+.input:focus {
   border-color: #888;
-  color: #888;
-}
-
-.input:disabled::placeholder {
   color: #888;
 }
 

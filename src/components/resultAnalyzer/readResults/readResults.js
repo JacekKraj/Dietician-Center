@@ -28,16 +28,6 @@ const withPercentMorphology = ["Neutrofile %", "Limfocyty %", "Monocyty %", "Eoz
 
 const fuzy = FuzzySet(bloodTestNames);
 
-const neuralDevidersLibrary = {
-  rbc: 100,
-  wbc: 12,
-  liver: 400,
-  thyriod: 10,
-  glucose: 400,
-  hashimoto: 200,
-  allergy: 10,
-};
-
 const similarityThreshold = 0.6;
 
 const getName = (line) => {
@@ -77,17 +67,21 @@ const getValue = (line) => {
 };
 
 export const readResults = (data) => {
-  const results = data.map((line) => {
-    const name = getName(line);
-    if (name) {
-      return {
-        name: name,
-        value: getValue(line),
-      };
-    }
+  const results = data.map((el) => {
+    return el.map((line) => {
+      const name = getName(line);
+      if (name) {
+        return {
+          name: name,
+          value: getValue(line),
+        };
+      }
+    });
   });
-  const bloodData = results.filter((el) => {
-    return el;
+  const bloodData = results.map((el) => {
+    return el.filter((el) => {
+      return el;
+    });
   });
   return bloodData;
 };

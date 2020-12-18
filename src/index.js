@@ -9,10 +9,12 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import authReducer from "./reducers/authReducer";
 import opinionReducer from "./reducers/opinionReducer";
+import patientsDataReducer from "./reducers/patientsData";
 
 const rootReducer = combineReducers({
   auth: authReducer,
   opinion: opinionReducer,
+  patients: patientsDataReducer,
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk));

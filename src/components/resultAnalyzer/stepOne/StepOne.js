@@ -17,8 +17,9 @@ const AddNewResult = (props) => {
   const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
     if (acceptedFiles.length > 0) {
       setButtonDisabled(false);
+      props.addStorageImages(acceptedFiles);
       const imageList = acceptedFiles.map((el) => window.URL.createObjectURL(el));
-      inputText.current.textContent = `Accepted ${acceptedFiles.length === 1 ? "1 file" : acceptedFiles.length + "files"} `;
+      inputText.current.textContent = `Accepted ${acceptedFiles.length === 1 ? "1 file" : acceptedFiles.length + " files"} `;
       props.setFiles(imageList);
     } else if (rejectedFiles.length) {
       showFailToast("Some files has been rejected. Check if format is correct(jpg, png) or total files size(max 50mb).");
