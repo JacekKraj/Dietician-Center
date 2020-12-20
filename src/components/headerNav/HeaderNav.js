@@ -69,7 +69,7 @@ const HeaderNav = (props) => {
           </NavLink>
           <NavigationItem text="faq" />
           <NavigationItem text="contact" />
-          {props.isAuthenticated && <NavigationItem text="Patients" />}
+          {props.isAuthenticated && <NavigationItem text="patients" />}
         </div>
         <div className={classes.navRight}>
           {!props.isAuthenticated ? (

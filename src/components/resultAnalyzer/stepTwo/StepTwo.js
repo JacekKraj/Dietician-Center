@@ -65,7 +65,6 @@ const StepTwo = (props) => {
           const name = values.selectName && values.selectName !== "Choose existing patient" ? values.selectName : values.name;
           values.name &&
             setPatientsNames((currState) => {
-              console.log("DODALEM");
               return [...currState, values.name];
             });
           firebase.storage().ref(`${props.fireUser.uid}/${values.date}/${index}`).put(props.imagesToStorage[index]);
@@ -148,7 +147,7 @@ const StepTwo = (props) => {
         type="button"
         onClick={() => {
           props.onAddPatientsNames(patientsNames);
-          history.push("/");
+          history.push("/patients");
         }}
       >
         Finish

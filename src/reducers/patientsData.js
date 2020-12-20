@@ -3,6 +3,7 @@ import fire from "./../firebaseConfig";
 
 const initialState = {
   patientsNames: [],
+  patientsNamesGot: false,
 };
 
 const patientsDataReducer = (state = initialState, action) => {
@@ -11,6 +12,7 @@ const patientsDataReducer = (state = initialState, action) => {
       const patientsNames = action.patientsNames ? [...action.patientsNames] : [];
       return {
         ...state,
+        patientsNamesGot: true,
         patientsNames: patientsNames,
       };
     case actionTypes.SET_PATIENTS_NAMES:
