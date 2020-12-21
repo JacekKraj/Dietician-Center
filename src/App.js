@@ -16,6 +16,10 @@ const App = (props) => {
   const [loading, setLoading] = useState(true);
   const [patientsRoutes, setPatientsRoutes] = useState(null);
 
+  const Patients = React.lazy(() => {
+    return import("./components/patients/Patients");
+  });
+
   const Faq = React.lazy(() => {
     return import("./components/faq/Faq");
   });
@@ -52,7 +56,8 @@ const App = (props) => {
     const patientsRts =
       props.patientsNames.length &&
       props.patientsNames.map((el, index) => {
-        return <Route key={index} exact path={`/${el}`} />;
+        let path = el?.replace(/\s/g, "");
+        return <Route key={index} exact path={`/${path}`} />;
       });
     setPatientsRoutes(patientsRts);
   }, [props.patientsNames]);
@@ -64,6 +69,7 @@ const App = (props) => {
       <Route exact path="/faq" render={(props) => <Faq {...props} />} />
       <Route exact path="/contact" render={(props) => <Contact {...props} />} />
       <Route exact path="/add-new-result" render={(props) => <ResultAnalyzer {...props} />} />
+      <Route exact path="/patients" render={(props) => <Patients {...props} />} />
       <Redirect to="/" />
     </Switch>
   ) : (

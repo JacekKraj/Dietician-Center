@@ -1,4 +1,5 @@
 import React from "react";
+import classnames from "classnames";
 
 import classes from "./input.module.scss";
 
@@ -10,7 +11,7 @@ const Input = (props) => {
       onChange={props.onChange}
       value={props.value}
       required={props.required}
-      className={classes.input}
+      className={classnames(props.class && props.class, classes.input)}
       disabled={props.disabled}
       placeholder={props.placeholder}
       autoComplete="off"
