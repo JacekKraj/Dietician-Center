@@ -27,6 +27,22 @@ const patientsDataReducer = (state = initialState, action) => {
         ...state,
         patientsNames: newPatientsNames,
       };
+    case actionTypes.REMOVE_PATIENT_NAME:
+      const removedNameIndex = state.patientsNames.findIndex((el) => {
+        return el === action.name;
+      });
+      const newNames = [...state.patientsNames];
+      newNames.splice(removedNameIndex, 1);
+      fire
+        .database()
+        .ref(`${fire.auth().currentUser.uid}/patientsNames`)
+        .set(newNames)
+        .then(() => {})
+        .catch(() => {});
+      return {
+        ...state,
+        patientsNames: newNames,
+      };
     default:
       return state;
   }

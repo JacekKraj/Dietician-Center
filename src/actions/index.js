@@ -2,4 +2,4 @@ export { setLoginMode, setRegisterMode, login, register, autoLogin, autoLogout }
 
 export { addOpinion, getOpinions } from "./opinions";
 
-export { getPatientsNames, setPatientsNames } from "./patientsData";
+export { getPatientsNames, setPatientsNames, removePatientName } from "./patientsData";

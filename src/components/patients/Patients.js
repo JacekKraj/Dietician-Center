@@ -91,7 +91,7 @@ const Patients = (props) => {
       </div>
       {props.patientsNames.length ? (
         <div className={classes.patientsWrapper}>
-          <SearchInput rerenderPatientsListHandler={rerenderPatientsListHandler} />
+          <SearchInput rerenderListHandler={rerenderPatientsListHandler} />
           {names}
           {newPatientInput}
           <div

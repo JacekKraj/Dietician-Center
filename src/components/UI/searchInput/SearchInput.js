@@ -15,7 +15,7 @@ const SearchInput = (props) => {
         value={inputValue}
         onChange={(e) => {
           setInputValue(e.target.value);
-          props.rerenderPatientsListHandler(e.target.value);
+          props.rerenderListHandler(e.target.value);
         }}
       />
     </div>

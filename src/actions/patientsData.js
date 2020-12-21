@@ -28,3 +28,10 @@ export const setPatientsNames = (names) => {
     names: names,
   };
 };
+
+export const removePatientName = (name) => {
+  return {
+    type: actionTypes.REMOVE_PATIENT_NAME,
+    name: name,
+  };
+};

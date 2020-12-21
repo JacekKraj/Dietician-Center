@@ -56,7 +56,7 @@ const App = (props) => {
     const patientsRts =
       props.patientsNames.length &&
       props.patientsNames.map((el, index) => {
-        let path = el.replace(/\s/g, "");
+        let path = el?.replace(/\s/g, "");
         return <Route key={index} exact path={`/${path}`} />;
       });
     setPatientsRoutes(patientsRts);
