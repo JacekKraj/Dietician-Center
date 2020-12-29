@@ -9,7 +9,7 @@ const SearchInput = (props) => {
     <div className={classes.container}>
       <SearchIcon className={classes.icon} />
       <input
-        placeholder="Search patient"
+        placeholder={props.placeholder}
         autoComplete="off"
         className={classes.input}
         value={inputValue}

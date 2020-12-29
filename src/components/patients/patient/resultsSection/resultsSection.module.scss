@@ -1,0 +1,64 @@
+.searchInputContainer {
+  width: 85%;
+  margin: 0 auto 5%;
+  padding-top: 6%;
+}
+.resultsContainer {
+  position: relative;
+  min-height: 50vh;
+  padding-bottom: 2%;
+}
+
+.spinnerContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.results {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.results > div:before {
+  background-color: transparent;
+}
+
+@media (min-width: 411px) and (orientation: portrait) {
+  .searchInputContainer {
+    padding-top: 7%;
+  }
+}
+
+@media (min-width: 600px) and (orientation: landscape) {
+  .searchInputContainer {
+    padding-top: 4%;
+  }
+}
+
+@media (min-width: 800px) and (orientation: landscape) {
+  .searchInputContainer {
+    width: 80%;
+  }
+  .results {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  .searchInputContainer {
+    padding-top: 3%;
+    margin: 0 auto 2%;
+  }
+}
+
+@media (min-width: 1250px) and (orientation: landscape) {
+  .searchInputContainer {
+    padding-top: 4%;
+    width: 75%;
+  }
+  .results {
+    width: 75%;
+  }
+}

@@ -1,6 +1,6 @@
 import FuzzySet from "fuzzyset.js";
 
-const namesMorphology = [
+export const namesMorphology = [
   "Leukocyty",
   "Erytrocyty",
   "Hemoglobina",
