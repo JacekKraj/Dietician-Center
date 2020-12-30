@@ -5,11 +5,13 @@ import { connect } from "react-redux";
 import classes from "./resultsSection.module.scss";
 import SearchInput from "./../../../UI/searchInput/SearchInput";
 import { namesMorphology } from "./../../../resultAnalyzer/readResults/readResults";
-import Spinner from "./../../../UI/spinner/Spinner";
 import Result from "./result/Result";
+import NoPatientData from "../noPatientData/NoPatientData";
 
 const ResultsSection = (props) => {
   const [patientResults, setPatientResults] = useState([]);
+  const [resultsTouched, setResultsTouched] = useState(false);
+
   const [resultsToDisplayNames, setResultsToDisplayNames] = useState([...namesMorphology, "weight"]);
 
   useEffect(() => {
@@ -18,7 +20,8 @@ const ResultsSection = (props) => {
       .ref(`${props.fireUser.uid}/patientsResults/${props.name}`)
       .once("value")
       .then((snapshot) => {
-        const values = Object.values(snapshot.val());
+        setResultsTouched(true);
+        const values = snapshot.val() ? Object.values(snapshot.val()) : [];
         setPatientResults(values);
       });
   }, []);
@@ -56,13 +59,7 @@ const ResultsSection = (props) => {
         <SearchInput placeholder="Search result" rerenderListHandler={rerenderResultsHandler} />
       </div>
       <div className={classes.resultsContainer}>
-        {patientResults.length ? (
-          <div className={classes.results}>{resultsToDisplay}</div>
-        ) : (
-          <div className={classes.spinnerContainer}>
-            <Spinner />
-          </div>
-        )}
+        {patientResults.length ? <div className={classes.results}>{resultsToDisplay}</div> : <NoPatientData touched={resultsTouched} />}
       </div>
     </div>
   );
