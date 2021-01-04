@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import MenuIcon from "@material-ui/icons/Menu";
 import classnames from "classnames";
 import { NavLink } from "react-router-dom";
@@ -67,9 +67,13 @@ const HeaderNav = (props) => {
           <NavLink to="/">
             <p className={classes.logo}>DieticianCenter</p>
           </NavLink>
-          <NavigationItem text="faq" />
-          <NavigationItem text="contact" />
-          {props.isAuthenticated && <NavigationItem text="patients" />}
+          <NavigationItem link="faq" />
+          <NavigationItem link="contact" />
+          {props.isAuthenticated && (
+            <Fragment>
+              <NavigationItem link="patients" /> <NavigationItem text="add result" link="add-new-result" />
+            </Fragment>
+          )}
         </div>
         <div className={classes.navRight}>
           {!props.isAuthenticated ? (
