@@ -44,21 +44,6 @@
   margin: 0 auto;
 }
 
-.opinionButtonContainer {
-  padding-bottom: 45px;
-  display: flex;
-  justify-content: center;
-}
-
-.opinionButtonContainer p {
-  color: #555;
-}
-
-.opinionButton {
-  width: 50%;
-  font-size: 18px;
-}
-
 @media (min-width: 650px) and (orientation: portrait) {
   .pageIntro {
     width: 80%;
@@ -85,15 +70,6 @@
 
   .testResultImage {
     width: 55%;
-  }
-
-  .opinionButton {
-    width: 40%;
-    font-size: 22px;
-  }
-
-  .opinionButtonContainer p {
-    font-size: 20px;
   }
 }
 
@@ -122,11 +98,6 @@
 
   .testResultImage {
     width: 55%;
-  }
-
-  .opinionButton {
-    width: 32%;
-    font-size: 22px;
   }
 }
 
@@ -184,10 +155,6 @@
   .authButton {
     font-size: 22px;
   }
-
-  .opinionButtonContainer {
-    padding-bottom: 60px;
-  }
 }
 
 @media (min-width: 1300px) {
@@ -213,9 +180,5 @@
 
   .testResultImage {
     width: 60%;
-  }
-
-  .opinionButton {
-    width: 20%;
   }
 }
