@@ -6,9 +6,9 @@ import classes from "./navigationItem.module.scss";
 
 const NavigationItem = (props) => {
   return (
-    <NavLink to={`/${props.text}`} exact activeClassName={classes.active}>
+    <NavLink to={`/${props.link}`} exact activeClassName={classes.active}>
       <button className={classnames(classes.navigationItem, props.className)} onClick={props.onClick}>
-        {props.text}
+        {props.text ? props.text : props.link}
       </button>
     </NavLink>
   );
