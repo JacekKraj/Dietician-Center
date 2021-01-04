@@ -28,11 +28,15 @@ const ImagesSection = (props) => {
       .ref(`${props.fireUser.uid}/patientsResults/${props.name}`)
       .once("value")
       .then((snapshot) => {
-        const dates = Array.from(Object.keys(snapshot.val()));
-        Promise.all(dates.map((el) => getImagesUrls(el))).then((results) => {
+        if (snapshot.val()) {
+          const dates = Array.from(Object.keys(snapshot.val()));
+          Promise.all(dates.map((el) => getImagesUrls(el))).then((results) => {
+            setImagesTouched(true);
+            setImages(results);
+          });
+        } else {
           setImagesTouched(true);
-          setImages(results);
-        });
+        }
       });
   }, []);
 
