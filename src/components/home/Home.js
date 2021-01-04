@@ -88,16 +88,6 @@ const Home = (props) => {
         />
       </div>
       <Opinions />
-      {/* <div className={classes.opinionButtonContainer}>
-        {props.isAuthenticated ? (
-          <Button className={classes.opinionButton} onClick={showAddOpinionModalHandler} type="button">
-            Add your opinion
-          </Button>
-        ) : (
-          <p>Sign in to be able to add your opinion.</p>
-        )}
-      </div>
-      {showAddOpinionModal && <NewOpinionModal backdropClick={showAddOpinionModalHandler} />} */}
     </div>
   );
 };
