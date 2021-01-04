@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import classnames from "classnames";
 import { NavLink } from "react-router-dom";
+import firebase from "firebase";
+import { connect } from "react-redux";
 
 import classes from "./patient.module.scss";
 import ImagesSection from "./imagesSection/ImagesSection";
@@ -9,6 +11,8 @@ import ResultsSection from "./resultsSection/ResultsSection";
 
 const Patient = (props) => {
   const [resultsMode, setResultsMode] = useState(0);
+  const [dates, setDates] = useState([]);
+
   return (
     <div className={classes.container}>
       <div className={classes.header}>
