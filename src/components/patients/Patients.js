@@ -9,7 +9,7 @@ import Button from "./../UI/button/Button";
 import * as actions from "./../../actions/index";
 import { showSuccessToast } from "./../../utility/toastify/toastify";
 import Spinner from "./../UI/spinner/Spinner";
-import Patient from "./patient/Patient";
+import Patient from "./patientLink/PatientLink";
 import SearchInput from "./../UI/searchInput/SearchInput";
 
 const Patients = (props) => {
@@ -91,7 +91,7 @@ const Patients = (props) => {
       </div>
       {props.patientsNames.length ? (
         <div className={classes.patientsWrapper}>
-          <SearchInput rerenderListHandler={rerenderPatientsListHandler} />
+          <SearchInput rerenderListHandler={rerenderPatientsListHandler} placeholder="Search patient" />
           {names}
           {newPatientInput}
           <div

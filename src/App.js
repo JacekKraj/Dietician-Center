@@ -32,6 +32,10 @@ const App = (props) => {
     return import("./components/resultAnalyzer/ResultAnalyzer");
   });
 
+  const Patient = React.lazy(() => {
+    return import("./components/patients/Patient/Patient");
+  });
+
   useEffect(() => {
     props.onGetOpinions();
     setLoading(true);
@@ -57,7 +61,7 @@ const App = (props) => {
       props.patientsNames.length &&
       props.patientsNames.map((el, index) => {
         let path = el?.replace(/\s/g, "");
-        return <Route key={index} exact path={`/${path}`} />;
+        return <Route key={index} exact path={`/${path}`} render={(props) => <Patient {...props} name={el} />} />;
       });
     setPatientsRoutes(patientsRts);
   }, [props.patientsNames]);

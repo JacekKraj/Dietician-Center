@@ -67,11 +67,11 @@ const StepTwo = (props) => {
             setPatientsNames((currState) => {
               return [...currState, values.name];
             });
-          firebase.storage().ref(`${props.fireUser.uid}/${values.date}/${index}`).put(props.imagesToStorage[index]);
+          firebase.storage().ref(`${props.fireUser.uid}/${name}/${values.date}`).put(props.imagesToStorage[index]);
           if (name) {
             fire
               .database()
-              .ref(`${props.fireUser.uid}/patientsResults/${name}/${values.date}/${index}`)
+              .ref(`${props.fireUser.uid}/patientsResults/${name}/${values.date}`)
               .set({ results: el, weight: values.weight, kcal: values.kcal, date: values.date })
               .then(() => {
                 showSuccessToast("Results have been saved.");
