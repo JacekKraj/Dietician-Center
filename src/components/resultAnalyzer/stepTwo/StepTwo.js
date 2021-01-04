@@ -21,6 +21,7 @@ const StepTwo = (props) => {
   const history = useHistory();
   const [coverElementIndex, setCoverElementIndex] = useState([]);
   const [patientsNames, setPatientsNames] = useState([...props.patientsNames]);
+  const [namesToAdd, setNamesToAdd] = useState([]);
 
   const tesseractRecognize = (file) =>
     new Promise((resolve, reject) => {
@@ -65,6 +66,10 @@ const StepTwo = (props) => {
           const name = values.selectName && values.selectName !== "Choose existing patient" ? values.selectName : values.name;
           values.name &&
             setPatientsNames((currState) => {
+              return [...currState, values.name];
+            });
+          values.name &&
+            setNamesToAdd((currState) => {
               return [...currState, values.name];
             });
           firebase.storage().ref(`${props.fireUser.uid}/${name}/${values.date}`).put(props.imagesToStorage[index]);
@@ -146,7 +151,7 @@ const StepTwo = (props) => {
         className={classes.finishButton}
         type="button"
         onClick={() => {
-          props.onAddPatientsNames(patientsNames);
+          props.onAddPatientsNames(namesToAdd);
           history.push("/patients");
         }}
       >
