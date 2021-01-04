@@ -39,6 +39,12 @@ const patientsDataReducer = (state = initialState, action) => {
         .set(newNames)
         .then(() => {})
         .catch(() => {});
+      fire
+        .database()
+        .ref(`${fire.auth().currentUser.uid}/patientsResults/${action.name}`)
+        .remove()
+        .then(() => {})
+        .catch(() => {});
       return {
         ...state,
         patientsNames: newNames,
