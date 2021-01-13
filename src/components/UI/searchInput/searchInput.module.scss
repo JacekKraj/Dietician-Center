@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-bottom: 2px solid #333;
+}
+
+.icon {
+  margin-right: 5px;
+  color: #333;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-size: 18px;
+}
+
+::placeholder,
+.input:focus {
+  color: #333;
+}
+
+@media (min-width: 600px) and(orientation:portrait) {
+  .container {
+    border-width: 3px;
+  }
+
+  .icon {
+    font-size: 35px;
+    margin-right: 10px;
+  }
+  .input {
+    font-size: 26px;
+    padding: 5px 0;
+  }
+}
+
+@media (min-width: 1024px) and(orientation:landscape) {
+  .input {
+    font-size: 24px;
+  }
+
+  .icon {
+    margin-right: 10px;
+    font-size: 35px;
+  }
+}

@@ -1,0 +1,18 @@
+.container {
+  position: relative;
+}
+
+.error {
+  position: absolute;
+  left: 0;
+  bottom: -20%;
+  font-size: 11px;
+  padding-left: 8px;
+}
+
+@media (min-width: 700px) {
+  .error {
+    bottom: -25%;
+    font-size: 15px;
+  }
+}

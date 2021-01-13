@@ -1,0 +1,122 @@
+.resultProperty {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 0;
+}
+
+.name {
+  flex-basis: 28%;
+  align-items: center;
+}
+
+.inputsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-basis: 64%;
+}
+
+.textInput {
+  flex-basis: 25%;
+}
+
+.selectInput {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #555;
+  font-size: 16px;
+  flex-basis: 29%;
+  padding: 2.5px 0;
+}
+
+.norm {
+  flex-basis: 25%;
+  font-size: 14px;
+}
+
+@media (min-width: 600px) {
+  .resultProperty {
+    padding: 4px 0;
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 650px) and (orientation: portrait) {
+  .inputsContainer {
+    flex-basis: 60%;
+  }
+
+  .selectInput {
+    font-size: 22px;
+    padding: 6px 9px;
+  }
+
+  .norm {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 640px) and (orientation: landscape) {
+  .name {
+    flex-basis: 40%;
+  }
+  .inputsContainer {
+    flex-basis: 60%;
+  }
+
+  .textInput {
+    flex-basis: 27%;
+  }
+
+  .selectInput {
+    flex-basis: 27%;
+  }
+}
+
+@media (min-width: 730px) and (orientation: landscape) {
+  .selectInput {
+    font-size: 22px;
+    padding: 5px 0px;
+  }
+
+  .norm {
+    font-size: 19px;
+  }
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  .inputsContainer {
+    flex-basis: 45%;
+  }
+
+  .textInput {
+    flex-basis: 26%;
+  }
+
+  .selectInput {
+    flex-basis: 26%;
+  }
+
+  .norm {
+    flex-basis: 25%;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1150px) {
+  .resultProperty {
+    font-size: 20px;
+  }
+  .name {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 1250px) {
+  .inputsContainer {
+    flex-basis: 40%;
+  }
+}

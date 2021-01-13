@@ -1,0 +1,67 @@
+.opinions {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-bottom: 40px;
+}
+
+.opinionButtonContainer {
+  padding-bottom: 45px;
+  display: flex;
+  justify-content: center;
+}
+
+.opinionButtonContainer p {
+  color: #555;
+}
+
+.opinionButton {
+  width: 50%;
+  font-size: 18px;
+}
+
+@media (min-width: 650px) and (orientation: portrait) {
+  .opinions {
+    padding-bottom: 55px;
+  }
+  .opinionButton {
+    width: 40%;
+    font-size: 22px;
+  }
+
+  .opinionButtonContainer p {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 800px) and (orientation: landscape) {
+  .opinionButton {
+    width: 32%;
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 1150px) {
+  .opinions {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 70px;
+    padding-top: 40px;
+  }
+
+  .opinionButtonContainer {
+    padding-bottom: 60px;
+  }
+}
+
+@media (min-width: 1300px) {
+  .opinionButton {
+    width: 20%;
+  }
+}
+
+@media (min-width: 1350px) {
+  .opinions {
+    padding-top: 35px;
+  }
+}

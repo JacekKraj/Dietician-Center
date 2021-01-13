@@ -1,0 +1,185 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  transition: 0.2s;
+  padding: 10px 3%;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.95);
+  margin: 13px 0;
+  border-radius: 10px;
+}
+
+.container:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+  -webkit-box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.25);
+}
+
+.icon {
+  color: #444;
+  font-size: 27px;
+  transition: 0.2s;
+}
+
+.icon:hover {
+  color: #111;
+  transform: scale(1.3);
+}
+
+.name {
+  color: #333;
+  font-size: 18px;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 11;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 35vh;
+  background-color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 8px;
+  padding: 30px 15px;
+}
+
+.modal p {
+  text-align: center;
+  line-height: 1.3;
+  font-size: 20px;
+}
+
+.modal > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  width: 45%;
+  font-size: 18px;
+}
+
+.modal button:last-of-type {
+  background-color: #ca3433;
+}
+
+.modal button:last-of-type:hover {
+  background-color: #ce4a4a;
+}
+
+@media (min-width: 411px) and (orientation: portrait) {
+  .modal {
+    height: 30vh;
+  }
+
+  .button {
+    font-size: 19px;
+  }
+}
+
+@media (min-width: 600px) and (orientation: portrait) {
+  .container {
+    margin: 20px 0;
+    padding: 15px 3%;
+  }
+
+  .icon {
+    font-size: 32px;
+  }
+
+  .name {
+    font-size: 24px;
+  }
+
+  .modal {
+    height: 28vh;
+    width: 64%;
+    padding: 35px 40px;
+  }
+
+  .modal p {
+    font-size: 28px;
+  }
+
+  .button {
+    font-size: 27px;
+    width: 40%;
+  }
+}
+
+@media (min-width: 600px) and (orientation: landscape) {
+  .container {
+    margin: 20px 0;
+    padding: 12px 3%;
+  }
+
+  .icon {
+    font-size: 28px;
+  }
+
+  .name {
+    font-size: 20px;
+  }
+
+  .modal {
+    width: 65%;
+    height: 55vh;
+    padding: 30px 25px;
+  }
+
+  .button {
+    width: 38%;
+    font-size: 19px;
+  }
+}
+
+@media (min-width: 730px) and(orientation:landscape) {
+  .modal {
+    width: 48%;
+  }
+
+  .button {
+    width: 42%;
+  }
+}
+
+@media (min-width: 1000px) and (orientation: landscape) {
+  .modal {
+    width: 38%;
+    height: 35vh;
+    padding: 40px;
+  }
+
+  .modal p {
+    font-size: 24px;
+  }
+
+  .button {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1250px) {
+  .modal {
+    height: 40vh;
+  }
+  .modal p {
+    font-size: 24px;
+    line-height: 1.5;
+  }
+}
+
+@media (min-width: 1250px) {
+  .modal {
+    width: 32%;
+    height: 33vh;
+  }
+}
