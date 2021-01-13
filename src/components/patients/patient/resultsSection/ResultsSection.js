@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import classes from "./resultsSection.module.scss";
 import SearchInput from "./../../../UI/searchInput/SearchInput";
-import { namesMorphology } from "./../../../resultAnalyzer/readResults/readResults";
+import { namesMorphology, withPercentMorphology } from "./../../../resultAnalyzer/readResults/readResults";
 import Result from "./result/Result";
 import NoPatientData from "../noPatientData/NoPatientData";
 
@@ -12,7 +12,7 @@ const ResultsSection = (props) => {
   const [patientResults, setPatientResults] = useState([]);
   const [resultsTouched, setResultsTouched] = useState(false);
 
-  const [resultsToDisplayNames, setResultsToDisplayNames] = useState([...namesMorphology, "weight"]);
+  const [resultsToDisplayNames, setResultsToDisplayNames] = useState([...namesMorphology, ...withPercentMorphology, "weight"]);
 
   useEffect(() => {
     firebase
@@ -22,6 +22,7 @@ const ResultsSection = (props) => {
       .then((snapshot) => {
         setResultsTouched(true);
         const values = snapshot.val() ? Object.values(snapshot.val()) : [];
+        console.log(values);
         setPatientResults(values);
       });
   }, []);
@@ -41,13 +42,13 @@ const ResultsSection = (props) => {
     const result = [];
     patientResults?.forEach((element) => {
       if (el === "weight") {
-        result.push({ date: element.date, result: `${element[el]} kg, ${element["kcal"]} kcal` });
+        result.push({ date: element.date, value: `${element[el]} kg, ${element["kcal"]} kcal` });
       } else {
         const singleResultValue = element.results.filter((res) => {
           return el === res.name;
         });
-
-        result.push({ date: element.date, result: singleResultValue[0].value });
+        // console.log(singleResultValue);
+        result.push({ date: element.date, value: singleResultValue[0].value, norm: singleResultValue[0].norm, unit: singleResultValue[0].unit });
       }
     });
     return <Result result={result} name={el === "weight" ? "Weight/Calories" : el} key={el} />;

@@ -39,6 +39,15 @@
 
 @media (min-width: 1024px) {
   .navigationItem {
+    padding: 0 25px;
+    margin-left: 0;
+    font-size: 20px;
+    color: #777;
+  }
+}
+
+@media (min-width: 1100px) {
+  .navigationItem {
     padding: 0 30px;
     margin-left: 0;
     font-size: 20px;
