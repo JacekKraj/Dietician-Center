@@ -21,7 +21,7 @@ const LnChart = (props) => {
     YAxisLeftName = "Weight";
     YAxisRightName = "Calories";
     props.data.forEach((el) => {
-      const words = el.result.split(" ");
+      const words = el.value.split(" ");
       chartData.push({
         name: `${el.date}`,
         Weight: parseFloat(words[0]),
@@ -33,7 +33,7 @@ const LnChart = (props) => {
     props.data.forEach((el) => {
       chartData.push({
         name: `${el.date}`,
-        [props.name]: parseFloat(el.result),
+        [props.name]: parseFloat(el.value),
       });
     });
   }

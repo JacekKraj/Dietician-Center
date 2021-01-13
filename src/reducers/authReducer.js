@@ -1,4 +1,3 @@
-import { FastRewind } from "@material-ui/icons";
 import * as actionTypes from "./../actions/actionTypes";
 
 import { showFailToast } from "./../utility/toastify/toastify";

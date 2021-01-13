@@ -16,6 +16,7 @@ import Button from "./../../UI/button/Button";
 import DateInput from "./../../UI/dateInput/DateInput";
 import { showFailToast, showSuccessToast } from "./../../../utility/toastify/toastify";
 import * as actions from "./../../../actions/index";
+import ResultProperty from "./resultProperty/ResultProperty";
 
 const StepTwo = (props) => {
   const history = useHistory();
@@ -27,7 +28,7 @@ const StepTwo = (props) => {
     new Promise((resolve, reject) => {
       const worker = createWorker({
         logger: (m) => {
-          // console.log(m);
+          console.log(m);
         },
       });
 
@@ -57,11 +58,31 @@ const StepTwo = (props) => {
   }, []);
 
   const resultsForm = props.results?.map((el, index) => {
+    let morphologyNamesInitalValues = {};
+    el.forEach((el) => {
+      morphologyNamesInitalValues = { ...morphologyNamesInitalValues, [el.name]: el.value };
+    });
+    let morphologyNamesInitalUnits = {};
+    el.forEach((el) => {
+      morphologyNamesInitalUnits = { ...morphologyNamesInitalUnits, [`${el.name}Unit`]: el.unit };
+    });
+
     return (
       <Formik
         key={index}
-        initialValues={{ selectName: "", name: "", date: "", weight: "", kcal: "" }}
+        initialValues={{ selectName: "", name: "", date: "", weight: "", kcal: "", ...morphologyNamesInitalValues, ...morphologyNamesInitalUnits }}
         onSubmit={(values) => {
+          const resultsToSend = [];
+
+          el.forEach((result) => {
+            resultsToSend.push({
+              name: result.name,
+              norm: result.norm,
+              unit: `${values[result.name + "Unit"]}`,
+              value: `${values[result.name]}`,
+            });
+          });
+
           setCoverElementIndex((currState) => [...currState, index]);
           const name = values.selectName && values.selectName !== "Choose existing patient" ? values.selectName : values.name;
           values.name &&
@@ -77,7 +98,7 @@ const StepTwo = (props) => {
             fire
               .database()
               .ref(`${props.fireUser.uid}/patientsResults/${name}/${values.date}`)
-              .set({ results: el, weight: values.weight, kcal: values.kcal, date: values.date })
+              .set({ results: resultsToSend, weight: values.weight, kcal: values.kcal, date: values.date })
               .then(() => {
                 showSuccessToast("Results have been saved.");
               })
@@ -98,7 +119,7 @@ const StepTwo = (props) => {
               <div className={classnames(coverCondition === index && classes.coverElement)}></div>
               <div className={classes.resultData}>
                 {patientsNames.length ? (
-                  <Field as="select" name="selectName" disabled={values.name ? true : false} className={classes.selectInput}>
+                  <Field as="select" name="selectName" required disabled={values.name ? true : false} className={classes.selectInput}>
                     <option value={null}>Choose existing patient</option>
                     {patientsNames.map((el) => {
                       return (
@@ -113,24 +134,26 @@ const StepTwo = (props) => {
                 <MyFormikInput
                   as={Input}
                   name="name"
+                  required
                   disabled={values.selectName && values.selectName !== "Choose existing patient" ? true : false}
                   placeholder="Add new patient"
                   type="text"
                   className={classes.textInput}
                 />
-                <Field as={DateInput} name="date" required />
+                <Field as={DateInput} name="date" required required />
               </div>
               <div className={classes.patientData}>
-                <MyFormikInput as={Input} name="weight" placeholder="Patients weight" type="number" className={classes.textInput} />
-                <MyFormikInput as={Input} name="kcal" placeholder="Amount of eaten calories" type="number" className={classes.textInput} />
+                <MyFormikInput as={Input} name="weight" required placeholder="Patients weight" type="number" className={classes.textInput} />
+                <MyFormikInput as={Input} name="kcal" required placeholder="Amount of eaten calories" type="number" className={classes.textInput} />
               </div>
               <div className={classes.results}>
                 {el.map((el, index) => {
                   return (
-                    <div className={classes.resultProperty} key={index}>
-                      <p>{el.name}</p>
-                      <p>{el.value}</p>
-                    </div>
+                    // <div className={classes.resultProperty} key={index}>
+                    //   <p>{el.name}</p>
+                    //   <p>{el.value}</p>
+                    // </div>
+                    <ResultProperty key={index} value={el.value} name={el.name} unitName={`${el.name}Unit`} unit={el.unit} norm={el.norm} />
                   );
                 })}
               </div>

@@ -11,11 +11,18 @@ import LnChart from "../../../../../utility/charts/LnChart";
 const Result = (props) => {
   const [showChart, setShowChart] = useState(false);
 
-  const results = props.result.map((el) => {
+  const results = props.result.map((el, index) => {
     return (
       <div className={classes.result} key={`${el.date},${el.result}`}>
         <p className={classes.resultDate}>{el.date}:</p>
-        <p className={classes.resultValue}>{el.result}</p>
+        <p className={classes.resultValue}>{el.value}</p>
+        {props.name !== "Weight/Calories" && (
+          <Fragment>
+            {" "}
+            <p className={classes.unit}>{el.unit}</p>
+            {index === 0 && <p className={classes.norm}>{el.norm}</p>}{" "}
+          </Fragment>
+        )}
       </div>
     );
   });

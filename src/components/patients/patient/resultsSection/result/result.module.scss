@@ -39,6 +39,15 @@
 
 .resultValue {
   font-weight: bold;
+  margin-right: 2%;
+}
+
+.norm {
+  margin: 0 0 0 auto;
+}
+
+.unit {
+  font-weight: bold;
 }
 
 @media (min-width: 411px) and (orientation: portrait) {
@@ -56,9 +65,15 @@
   .result {
     font-size: 24px;
   }
+  .resultValue {
+    margin-right: 1%;
+  }
 }
 
 @media (min-width: 600px) and (orientation: landscape) {
+  .resultValue {
+    margin-right: 1%;
+  }
   .resultsName {
     font-size: 20px;
   }
@@ -84,6 +99,9 @@
 }
 
 @media (min-width: 1150px) {
+  .resultValue {
+    margin-right: 0.5%;
+  }
   .resultName {
     font-size: 23px;
   }
