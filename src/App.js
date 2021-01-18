@@ -33,7 +33,7 @@ const App = (props) => {
   });
 
   const Patient = React.lazy(() => {
-    return import("./components/patients/Patient/Patient");
+    return import("./components/patients/patient/Patient");
   });
 
   useEffect(() => {
