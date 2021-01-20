@@ -2,6 +2,8 @@ Results to be used on page.
 
 ![b1bz](https://user-images.githubusercontent.com/56792355/105228714-32f8fb00-5b63-11eb-9dd8-9850ce87aabe.jpg)
 
+![b2bd](https://user-images.githubusercontent.com/56792355/105229212-e19d3b80-5b63-11eb-98c8-0eef0b3de0a3.jpg)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
